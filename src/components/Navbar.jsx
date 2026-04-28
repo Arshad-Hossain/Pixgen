@@ -1,16 +1,16 @@
 "use client";
-// import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
-  // const userData = authClient.useSession();
-  // const user = userData.data?.user;
+  const userData = authClient.useSession();
+  const user = userData.data?.user;
 
-  // const handleSignOut = async () => {
-  //   await authClient.signOut();
-  // }
+  const handleSignOut = async () => {
+    await authClient.signOut();
+  };
 
   return (
     <div className="border-b px-2">
@@ -42,7 +42,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* <div className="flex gap-4">
+        <div className="flex gap-4">
           {!user && (
             <ul className="flex items-center  text-sm gap-5">
               <li>
@@ -70,7 +70,7 @@ const Navbar = () => {
               </Button>
             </div>
           )}
-        </div> */}
+        </div>
       </nav>
     </div>
   );
